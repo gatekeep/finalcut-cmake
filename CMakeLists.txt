@@ -27,6 +27,7 @@ file(GLOB finalcut_SRC
 
 option(F_COMPILE_EXAMPLES "Compile examples" off)
 option(F_COMPILE_STATIC "Compile finalcut static library" off)
+option(F_CMAKE_OPTS "" on)
 
 message(CHECK_START "Compile examples")
 if (F_COMPILE_EXAMPLES)
@@ -103,6 +104,7 @@ else ()
 endif (CROSS_COMPILE_RPI_ARM)
 
 # Standard CMake options
+if (F_CMAKE_OPTS)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY .)
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
@@ -132,6 +134,7 @@ if (CROSS_COMPILE_ARM)
 endif (CROSS_COMPILE_ARM)
 
 set(CMAKE_INSTALL_PREFIX "/usr/local")
+endif ()
 
 add_definitions(-DF_VERSION="0.9.0")
 add_definitions(-DCOMPILE_FINAL_CUT)
