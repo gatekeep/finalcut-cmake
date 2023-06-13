@@ -41,6 +41,7 @@ file(GLOB finalcut_SRC
     "src/final/*.cpp"
     "src/final/*.h"
 )
+
 #
 ## finalcut project
 #
