@@ -207,7 +207,7 @@ inline void FMessageBox::allocation()
 {
   try
   {
-    if ( button_digit[0] > ButtonType::Reject && isModal() ) 
+    if ( button_digit[0] > ButtonType::Reject ) 
     {
       button[0] = std::make_unique<FButton>(this);
       button[0]->setText(button_text[std::size_t(button_digit[0])]);
