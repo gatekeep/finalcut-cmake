@@ -103,8 +103,6 @@ else ()
 endif (CROSS_COMPILE_RPI_ARM)
 
 # Standard CMake options
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY .)
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
@@ -143,7 +141,6 @@ add_definitions(-DCOMPILE_FINAL_CUT)
 #
 project(finalcut)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
-find_package(Threads REQUIRED)
 find_package(Curses REQUIRED)
 
 if (F_COMPILE_STATIC)
@@ -152,7 +149,7 @@ else ()
     add_library(finalcut SHARED ${finalcut_SRC})
 endif (F_COMPILE_STATIC)
 target_include_directories(finalcut PRIVATE src)
-target_link_libraries(finalcut PRIVATE Threads::Threads ncurses util)
+target_link_libraries(finalcut PRIVATE ncurses)
 
 #
 ## example sources
