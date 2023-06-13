@@ -184,9 +184,6 @@ void FMessageBox::init()
                     = ButtonType::Reject;
   }
 
-  if ( button_digit[0] == ButtonType::Reject )
-    button_digit[0] = ButtonType::Ok;
-
   if ( button_digit[1] == ButtonType::Reject
     && button_digit[2] == ButtonType::Reject )
     num_buttons = 1;
