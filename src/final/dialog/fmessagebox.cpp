@@ -207,12 +207,15 @@ inline void FMessageBox::allocation()
 {
   try
   {
-    button[0] = std::make_unique<FButton>(this);
-    button[0]->setText(button_text[std::size_t(button_digit[0])]);
-    button[0]->setPos(FPoint{3, int(getHeight()) - 4}, false);
-    button[0]->setWidth(1, false);
-    button[0]->setHeight(1, false);
-    button[0]->setFocus();
+    if ( button_digit[0] > ButtonType::Reject && isModal() ) 
+    {
+      button[0] = std::make_unique<FButton>(this);
+      button[0]->setText(button_text[std::size_t(button_digit[0])]);
+      button[0]->setPos(FPoint{3, int(getHeight()) - 4}, false);
+      button[0]->setWidth(1, false);
+      button[0]->setHeight(1, false);
+      button[0]->setFocus();
+    }
 
     if ( button_digit[1] > ButtonType::Reject )
     {
