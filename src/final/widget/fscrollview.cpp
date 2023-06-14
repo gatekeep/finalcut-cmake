@@ -780,7 +780,7 @@ inline auto FScrollView::getViewportCursorPos() -> FPoint
 //----------------------------------------------------------------------
 void FScrollView::init()
 {
-  const auto& parent = getParentWidget();
+  //const auto& parent = getParentWidget();
 
   assert ( parent != nullptr );
   assert ( ! parent->isInstanceOf("FScrollView") );
