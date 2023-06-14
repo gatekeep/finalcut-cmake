@@ -781,9 +781,8 @@ inline auto FScrollView::getViewportCursorPos() -> FPoint
 void FScrollView::init()
 {
   //const auto& parent = getParentWidget();
-
-  assert ( parent != nullptr );
-  assert ( ! parent->isInstanceOf("FScrollView") );
+  //assert ( parent != nullptr );
+  //assert ( ! parent->isInstanceOf("FScrollView") );
 
   initScrollbar (vbar, Orientation::Vertical, &FScrollView::cb_vbarChange);
   initScrollbar (hbar, Orientation::Horizontal, &FScrollView::cb_hbarChange);
